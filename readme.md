@@ -26,18 +26,25 @@ OPENAI_API_KEY= # Your OpenAI API key
 
 The code is structured as follows:
 
-- `app.py`: The main application file that defines the Streamlit gui app and the user interface.
+- `app_db.py`: The main application file that defines the Streamlit gui app and the user interface.
     * get_pdf_text function: reads text from PDF files
     * get_text_chunks function: splits text into chunks
     * get_vectorstore function: creates a FAISS vectorstore from text chunks and their embeddings
     * get_conversation_chain function: creates a retrieval chain from vectorstore
     * handle_userinput function: generates response from OpenAI GPT API
+    * create_connection: connect to MySQL DB
+    * initialize_db: create tables if not exist
+    * create_new_session: create new session id for identifying purposes
+    * get_previous_sessions: load preivous session from DB
+    * load_chat_history_for_session: load chat history from DB to display on the streamlit app
+    * save_message_to_db: save chat history to DB
 - `htmlTemplates.py`: A module that defines HTML templates for the user interface.
+- `create_chat_history_db.sql`: sql script that creates chat history DB and tables to store/retrieve chat data.
 
 
 ## How to run
 ```
-streamlit run app.py
+streamlit run app_db.py
 ```
 
 

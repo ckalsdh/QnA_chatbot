@@ -34,7 +34,6 @@ def initialize_db():
     connection = create_connection()
     if connection:
         cursor = connection.cursor()
-        # Create chat_sessions table
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS chat_sessions (
                 session_id VARCHAR(255) PRIMARY KEY,
